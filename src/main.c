@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 {
 	srand(time(NULL));
 
-	if (argc < 0)
+	if (argc < 2)
 	{
 		usage(argc, argv);
 		return 1;
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 	window_init(&screen);
 
 	chip_init(&chip);
-	chip_load_rom(&chip, "roms/pong");
+	chip_load_rom(&chip, argv[1]);
 
 	uint32_t* pixel_buffer = malloc(sizeof(uint32_t) * (WINDOW_HEIGHT * WINDOW_WIDTH));
 
